@@ -8,10 +8,20 @@ namespace AgregaceAKompozice
 
     public Student(string jmeno, string prijmeni, int rocnik)
     {
-        // TODO
+        if(string.IsNullOrWhiteSpace(jmeno))
+           throw new ArgumentException("Jméno nesmí být prázdné", nameof(jmeno));
+           if (string.IsNullOrWhiteSpace(prijmeni))
+           throw new ArgumentException("Příjmení nesmí být prázdné", nameof(prijmeni));
+           if(rocnik <= 0)
+           throw new ArgumentException("Řočník nesmí být prázdný", nameof(rocnik));
+
+        jmeno = jmeno.Trim();
+        Prijmeni = prijmeni.Trim();
+        Rocnik = rocnik;
+
     }
 
-    public override string ToString()
+    public override string ToString() => $"{Prijmeni} {Jmeno} {Rocnik}. ročník";
     {
         // TODO
         return "";
